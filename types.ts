@@ -20,7 +20,7 @@ export type PriceHistoryItem = {
     averagePrice: number;
     discountRate: number;
     description: string;
-    cleanedDescriptionArray:String[];
+    // cleanedDescriptionArray:String[];
     category: string;
     reviewsCount: string;
     stars: string;
