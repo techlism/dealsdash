@@ -8,7 +8,7 @@ const isValidAmazonLink  = (url : string) : boolean =>{
     try {
         const parsedURL = new URL(url);
         const hostname = parsedURL.hostname;
-        if(hostname.includes('amazon.com') || hostname.includes('amazon.') || hostname.endsWith('amazon')){
+        if(hostname.includes('amazon.com') || hostname.includes('amazon.') || hostname.endsWith('amazon') || hostname.includes('amzn')){
             return true;
         }
     } catch (error) {
