@@ -112,7 +112,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                     alt="comment"
                     width={16}
                     height={16}
-                  />
+                  /> 
                   <p className="text-sm text-secondary font-semibold">
                     {product.reviewsCount}
                   </p>
