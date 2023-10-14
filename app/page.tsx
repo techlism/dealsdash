@@ -28,9 +28,7 @@ export default async function Home() {
               </span>
             </h1>
             <p className="mt-6">
-              Powerful, easy to use product and 
-              growth analytics to help you convert, engage and 
-              retain more.
+              Track your Amazon product prices effortlessly. Get timely alerts straight to your email with our platform. Never miss a price drop again!            
             </p>
             <Searchbar/>
           </div>
