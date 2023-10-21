@@ -1,8 +1,9 @@
 "use client"
 
 import { scrapeAndStoreProduct } from "@/lib/actions";
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 import { FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const isValidAmazonLink  = (url : string) : boolean =>{
     try {
@@ -20,7 +21,7 @@ const isValidAmazonLink  = (url : string) : boolean =>{
 const Searchbar = () =>{
     const [searchPrompt , setSearchPrompt] = useState('');
     const [isLoading , setLoading] =  useState(false);
-
+    const router = useRouter();
     const handleSubmit = async (event : FormEvent<HTMLFormElement>) =>{
         event.preventDefault();
         const isValidLink = isValidAmazonLink(searchPrompt);
@@ -28,7 +29,7 @@ const Searchbar = () =>{
         try {
             setLoading(true);
             const scraped = await scrapeAndStoreProduct(searchPrompt);
-            if(scraped !== '') redirect(scraped);
+            if(scraped !== '') router.push(scraped);
             // Product page will be scrapped here
         } catch (error) {
             console.log(error);
@@ -39,12 +40,12 @@ const Searchbar = () =>{
     }    
 
     return (
-      <form onSubmit={handleSubmit} className="flex flex-wrap gap-4 mt-12">
+      <form onSubmit={handleSubmit} className="flex flex-wrap gap-4 mt-12" id="searchbar">
         <input
           type="text"
           value={searchPrompt}
           onChange={(e)=>setSearchPrompt(e.target.value)}
-          placeholder="Paste your product link"
+          placeholder="Paste your Amazon product link"
           className="searchbar-input"
         />
         <button type="submit" className="searchbar-btn" disabled = {searchPrompt===''}>

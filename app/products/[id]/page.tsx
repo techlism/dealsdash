@@ -166,8 +166,8 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                 .split("\n")
                 .filter((line : string) => line.trim() !== "" && line.trim() !== ">" && line !== '>\n' && line !== '\n' && line!=='>')
                 .map((line : string) => line.endsWith(">") ? line.slice(0, -1) : line)
-                .map((line : string)=>(
-                    (line !== "\n" && line.trim() !== ">" && !line.includes("review")) ? <p>{line}</p> : <p>{''}</p>
+                .map((line : string, index : number)=>(
+                    (line !== "\n" && line.trim() !== ">" && !line.includes("review")) ? <p key={index}>{line}</p> : <p>{''}</p>
                 ))
             }
           </div>

@@ -5,7 +5,7 @@ import { scrapeAmazonProduct } from "../scraper";
 import Product from "../models/product.model";
 import { revalidatePath } from "next/cache";
 import { getAveragePrice, getHighestPrice, getLowestPrice } from "../utils";
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 import { generateEmailBody, sendEmail } from "@/lib/nodemailer/index";
 import { User } from "@/types";
 
